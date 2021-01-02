@@ -1,9 +1,13 @@
-calculate_muscle <- function(bodypart, z) {
+calculate_muscle_remain <- function(bodypart, z) {
   
   # Given that we have calculated the quantity
   # required to meet bone requirements, how
   # much more muscle meat do we need to add
   # to meet that requirement?
+  needed_weekly_oz_muscle <-
+    hermes_stats %>% 
+    filter(Part == "Muscle") %>% 
+    pull(Weekly)
   
   musc_percent <-
     bone_db %>% 
@@ -16,11 +20,10 @@ calculate_muscle <- function(bodypart, z) {
   
   # Calculate remaining quantity of muscle meat necessary
   # to reach weekly goal.
-
-  return(paste0("The ", 
-                bodypart,
-                " provides ",
-                a1, 
-                " ounces of muscle meat to meet your weekly muscle quota."))
+  a2 <- round(needed_weekly_oz_muscle - a1, digits = 1)
+  
+  return(paste0("You still need ", 
+                a2, 
+                " ounces of muscle meat to meet your weekly quota."))
   
 }
