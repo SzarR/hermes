@@ -1,4 +1,4 @@
-calculate_muscle <- function(bodypart, z) {
+calculate_muscle <- function(bodypart, z, scale = "ounces") {
   
   # Given that we have calculated the quantity
   # required to meet bone requirements, how
@@ -14,6 +14,10 @@ calculate_muscle <- function(bodypart, z) {
   # muscle meat that quantity of bodypart would provide.
   a1 <- round(z * musc_percent, digits = 1)
   
+  if(scale == 'pounds') {
+    a1 <- round(a1 * .0625,digits = 1)
+  }
+  
   # Calculate remaining quantity of muscle meat necessary
   # to reach weekly goal.
 
@@ -21,6 +25,8 @@ calculate_muscle <- function(bodypart, z) {
                 bodypart,
                 " provides ",
                 a1, 
-                " ounces of muscle meat to meet your weekly muscle quota."))
+                " ",
+                scale,
+                " of muscle meat to meet your weekly muscle quota."))
   
 }

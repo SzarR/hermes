@@ -9,7 +9,6 @@
 # Options and Packages ----------------------------------------------------
 
 library(tidyverse)
-library(measurements)
 
 # Custom Functions --------------------------------------------------------
 
@@ -32,21 +31,18 @@ hermes_stats <- calculate_weekly()
 
 # Step 0: Specify Body Part -----------------------------------------------
 
-animal <- c("Chicken Wing")
+animal <- c("Chicken Neck")
 
 # Step 1: Get Bone Calculation --------------------------------------------
 calculate_bone(bodypart = animal,
                frequency = "Weekly",
-               scale = "ounce")
+               scale = "pounds")
 
 # Step 2: Get Muscle Calculation ------------------------------------------
 calculate_muscle_remain(bodypart = animal,
-                 z = 28.9)
+                 z = 36.9, 
+                 scale = 'ounces')
 
 calculate_muscle(bodypart = animal,
-                 z = 28.9)
-
-# Convert oz to lb --------------------------------------------------------
-
-measurements::conv_unit(15.6, from = "oz", to = "lbs")
-
+                 z = 36.9,
+                 scale = 'pounds')

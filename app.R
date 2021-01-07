@@ -42,16 +42,6 @@ ui <- dashboardPage(
         label = "Establish Datalink",
         width = 220)
     )
-  ),
-  column(
-    width = 12,
-    box(
-      title = h3("Logbook Entries"),
-      solidHeader = TRUE,
-      width = 12,
-      collapsible = TRUE,
-      DT::dataTableOutput("table_logbook")
-    )
   ))
 )
 
