@@ -1,4 +1,4 @@
-calculate_muscle_remain <- function(bodypart, z, scale) {
+calculate_muscle_remain <- function(bodypart, z, scale, frequency) {
   
   # Given that we have calculated the quantity
   # required to meet bone requirements, how
@@ -7,7 +7,7 @@ calculate_muscle_remain <- function(bodypart, z, scale) {
   needed_weekly_oz_muscle <-
     hermes_stats %>% 
     filter(Part == "Muscle") %>% 
-    pull(Weekly)
+    pull({{ frequency }})
   
   musc_percent <-
     bone_db %>% 
@@ -30,6 +30,8 @@ calculate_muscle_remain <- function(bodypart, z, scale) {
                 a2, 
                 " ",
                 scale,
-                " of muscle meat to meet your weekly quota."))
+                " of muscle meat to meet your ",
+                frequency,
+                " quota."))
   
 }

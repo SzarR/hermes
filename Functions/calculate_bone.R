@@ -4,7 +4,7 @@ calculate_bone <- function(bodypart, frequency="Weekly", scale = "ounces") {
   needed_weekly_oz_bone <-
     hermes_stats %>% 
     filter(Part == "Bone") %>% 
-    pull(Weekly)
+    pull({{ frequency }})
   
   bone_percent <-
     bone_db %>% 
@@ -24,7 +24,9 @@ calculate_bone <- function(bodypart, frequency="Weekly", scale = "ounces") {
                 " ",
                 scale,
                 " of ",
-                bodypart, " to meet your weekly bone quota."))
+                bodypart, " to meet your ",
+                frequency,
+                " bone quota."))
   return(x)
 
 }

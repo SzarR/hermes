@@ -31,18 +31,19 @@ hermes_stats <- calculate_weekly()
 
 # Step 0: Specify Body Part -----------------------------------------------
 
-animal <- c("Chicken Neck")
+animal <- c("Turkey Neck")
 
 # Step 1: Get Bone Calculation --------------------------------------------
 calculate_bone(bodypart = animal,
-               frequency = "Weekly",
-               scale = "pounds")
+               frequency = "Daily",
+               scale = "ounces")
 
 # Step 2: Get Muscle Calculation ------------------------------------------
 calculate_muscle_remain(bodypart = animal,
-                 z = 36.9, 
-                 scale = 'ounces')
+                       frequency = "Daily",
+                       z = 4.8, 
+                       scale = 'ounces')
 
 calculate_muscle(bodypart = animal,
-                 z = 36.9,
-                 scale = 'pounds')
+                 z = 4.8,
+                 scale = 'ounces')
