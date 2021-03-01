@@ -9,6 +9,7 @@
 # Options and Packages ----------------------------------------------------
 
 library(tidyverse)
+library(readxl)
 
 # Custom Functions --------------------------------------------------------
 
@@ -31,17 +32,17 @@ hermes_stats <- calculate_weekly()
 
 # Step 0: Specify Body Part -----------------------------------------------
 
-animal <- c("Turkey Neck")
+animal <- c("Duck Wing")
 
 # Step 1: Get Bone Calculation --------------------------------------------
 calculate_bone(bodypart = animal,
-               frequency = "Daily",
-               scale = "ounces")
+               frequency = "Weekly",
+               scale = "pounds")
 
 # Step 2: Get Muscle Calculation ------------------------------------------
 calculate_muscle_remain(bodypart = animal,
                        frequency = "Daily",
-                       z = 4.8, 
+                       z = 28.6 
                        scale = 'ounces')
 
 calculate_muscle(bodypart = animal,
